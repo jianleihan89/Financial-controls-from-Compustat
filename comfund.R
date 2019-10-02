@@ -2,7 +2,8 @@ library(RPostgres)
 library(readr)
 library(dplyr)
 library(psych)
-cutoff=0.01
+cutoff=0.01         ###setup winsorize percentage
+###input your username and password of wrds
 wrds <- dbConnect(Postgres(),
                   host='wrds-pgdata.wharton.upenn.edu',
                   port=9737,
