@@ -18,7 +18,7 @@ wrds <- dbConnect(Postgres(),
 #                   where table_schema='comp'
 #                   and table_name='funda'
 #                   order by column_name")
-#data <- dbFetch(res, n=-1)
+#data=dbFetch(res, n=-1)
 #dbClearResult(res)
 #data
 res <- dbSendQuery(wrds, "select a.gvkey,a.cusip,a.cik,a.fyear,a.datadate,
@@ -30,7 +30,7 @@ res <- dbSendQuery(wrds, "select a.gvkey,a.cusip,a.cik,a.fyear,a.datadate,
                    and a.datafmt='STD'
                    and a.popsrc='D'
                    and a.at>0")
-compfunda <- dbFetch(res,n=-1)
+compfunda=dbFetch(res,n=-1)
 dbClearResult(res)
 
 
