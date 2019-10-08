@@ -24,7 +24,7 @@ wrds <- dbConnect(Postgres(),
 res <- dbSendQuery(wrds, "select a.gvkey,a.cusip,a.cik,a.fyear,a.datadate,
                    a.at,a.xrd,a.sale,a.ib,a.ppent,a.dltt,a.dlc,a.capx,a.ceq,
                    a.csho,a.prcc_f,a.dp,a.dvc,a.che,a.act,a.lct,b.sic,
-                   a.txp,a.dp,a.ibc,a.oancf,a.xidoc,a.re
+                   a.txp,a.dp,a.ibc,a.oancf,a.xidoc,a.re,a.rect
                    from comp.funda a join comp.company b
                    on a.gvkey=b.gvkey
                    where a.consol='C'
