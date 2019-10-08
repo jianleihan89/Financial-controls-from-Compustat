@@ -6,12 +6,12 @@ compfunda=compfunda %>% group_by(gvkey) %>% mutate(dstd=dlc-lag(dlc))
 compfunda=compfunda %>% group_by(gvkey) %>% mutate(dtp=txp-lag(txp))
 compfunda=compfunda %>% group_by(gvkey) %>% mutate(lagta=lag(at))
 compfunda=compfunda %>% group_by(gvkey) %>% mutate(dsale=sale-lag(sale))
-
+compfunda=compfunda %>% group_by(gvkey) %>% mutate(drec=rect-lag(rect))
 compfunda$dsale=compfunda$dsale/compfunda$lagta
 compfunda$accrual=(compfunda$dca-compfunda$dcl-compfunda$dcash+compfunda$dstd-compfunda$dp+compfunda$dtp)/compfunda$lagta
 compfunda$workcap=compfunda$act-compfunda$lct
 compfunda$zscore=(3.3*compfunda$ib+1.4*compfunda$re+1.2*compfunda$workcap)/compfunda$at
-compfunda$tacc=(compfunda$ibc-(compfunda$oancf-compfunda$xidoc))/compfunda$at
+compfunda$tacc=(compfunda$ibc-compfunda$oancf)/compfunda$at
 
 emdata=subset(compfunda,select=c("gvkey","fyear","tacc","at","dsale","ppe","indu"))
 emdata$iat=1/emdata$at
